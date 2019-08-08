@@ -620,8 +620,12 @@ public final class IntMath {
    * @throws IllegalArgumentException if {@code n < 0}
    */
   public static int factorial(int n) {
+    // Ensures that users understand that 13! cannot be returned with the INT datatype.
+    if(n >= 13){
+      throw new ArithmeticException("Please enter an integer which is less than 13 and non-negative.");
+    }
     checkNonNegative("n", n);
-    return (n < factorials.length) ? factorials[n] : Integer.MAX_VALUE;
+    return factorials[n];
   }
 
   private static final int[] factorials = {
